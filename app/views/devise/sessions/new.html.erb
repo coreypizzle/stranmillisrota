@@ -1,0 +1,24 @@
+<div class="form_con">
+
+<style type="text/css">
+html, body {
+  background-color: #49612b!important;
+}
+</style>
+
+<h2>User Login</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.text_field :username, autofocus: true, placeholder: "Username" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+</div>
