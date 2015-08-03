@@ -19,19 +19,19 @@
   <div class="navbar">
     <ul>
       <li><%= link_to "Home", root_path %></li>
-      <% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-  </li>
-<% else %>
-  <% if admin_signed_in? %>
-      <%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>   
-  <% else %>
+    <% if user_signed_in? %>
       <li>
-        <%= link_to "Admin", new_admin_session_path %>
+      <li>
+        <% if current_user.admin %>
+          Admin
+        <% else %>
+        <% end %>
       </li>
-  <% end %>
-<% end %>
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+      </li>
+    <% else %>
+    <% end %>
+      
     </ul>
   </div>
 

@@ -61,6 +61,7 @@ body, html {
   margin: 0 auto 0 auto;
   text-align: center;
   margin: 15% 0 0 0;
+  height: 100%;
 }
 
 .form_con label, .form_con h2 {
@@ -89,4 +90,21 @@ body, html {
   border-radius: 10px;
   padding: 5px;
   width: 100px;
+}
+
+table {
+  width: 75%;
+  margin: 10% auto 0 auto;
+  position: relative;
+  border-collapse: collapse;
+  border: 3px solid #49612b;
+}
+
+th, td {
+  border: 1px solid #49612b;
+  width: 120px;
+}
+
+tr {
+  height: 40px;
 }

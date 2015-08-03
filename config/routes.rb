@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :rota
+
   get 'registrations/new'
 
   devise_for :admins
