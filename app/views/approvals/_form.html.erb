@@ -1,0 +1,152 @@
+<%= form_for(@approval) do |f| %>
+  <% if @approval.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@approval.errors.count, "error") %> prohibited this approval from being saved:</h2>
+
+      <ul>
+      <% @approval.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :rotumid, :value => @rota.id %>
+
+    <table>
+      <tr>
+    <th></th>
+    <th>Sunday</th>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+    <th>Saturday</th>
+  </tr>
+
+  <tr>
+    <th>Louise</th>
+    <td><%= f.text_field :grid11, :value => @rota.grid11 %></td>
+    <td><%= f.text_field :grid12, :value => @rota.grid12 %></td>
+    <td><%= f.text_field :grid13, :value => @rota.grid13 %></td>
+    <td><%= f.text_field :grid14, :value => @rota.grid14 %></td>
+    <td><%= f.text_field :grid15, :value => @rota.grid15 %></td>
+    <td><%= f.text_field :grid16, :value => @rota.grid16 %></td>
+    <td><%= f.text_field :grid17, :value => @rota.grid17 %></td>
+  </tr>
+
+  <tr>
+    <th>Ruairi</th>
+    <td><%= f.text_field :grid21, :value => @rota.grid21 %></td>
+    <td><%= f.text_field :grid22, :value => @rota.grid22 %></td>
+    <td><%= f.text_field :grid23, :value => @rota.grid23 %></td>
+    <td><%= f.text_field :grid24, :value => @rota.grid24 %></td>
+    <td><%= f.text_field :grid25, :value => @rota.grid25 %></td>
+    <td><%= f.text_field :grid26, :value => @rota.grid26 %></td>
+    <td><%= f.text_field :grid27, :value => @rota.grid27 %></td>
+  </tr>
+
+  <tr>
+    <th>Gavin</th>
+    <td><%= f.text_field :grid31, :value => @rota.grid31 %></td>
+    <td><%= f.text_field :grid32, :value => @rota.grid32 %></td>
+    <td><%= f.text_field :grid33, :value => @rota.grid33 %></td>
+    <td><%= f.text_field :grid34, :value => @rota.grid34 %></td>
+    <td><%= f.text_field :grid35, :value => @rota.grid35 %></td>
+    <td><%= f.text_field :grid36, :value => @rota.grid36 %></td>
+    <td><%= f.text_field :grid37, :value => @rota.grid37 %></td>
+  </tr>
+
+  <tr>
+    <th>Conn</th>
+    <td><%= f.text_field :grid41, :value => @rota.grid41 %></td>
+    <td><%= f.text_field :grid42, :value => @rota.grid42 %></td>
+    <td><%= f.text_field :grid43, :value => @rota.grid43 %></td>
+    <td><%= f.text_field :grid44, :value => @rota.grid44 %></td>
+    <td><%= f.text_field :grid45, :value => @rota.grid45 %></td>
+    <td><%= f.text_field :grid46, :value => @rota.grid46 %></td>
+    <td><%= f.text_field :grid47, :value => @rota.grid47 %></td>
+  </tr>
+
+  <tr>
+    <th>Michael K</th>
+    <td><%= f.text_field :grid51, :value => @rota.grid51 %></td>
+    <td><%= f.text_field :grid52, :value => @rota.grid52 %></td>
+    <td><%= f.text_field :grid53, :value => @rota.grid53 %></td>
+    <td><%= f.text_field :grid54, :value => @rota.grid54 %></td>
+    <td><%= f.text_field :grid55, :value => @rota.grid55 %></td>
+    <td><%= f.text_field :grid56, :value => @rota.grid56 %></td>
+    <td><%= f.text_field :grid57, :value => @rota.grid57 %></td>
+  </tr>
+
+  <tr>
+    <th>Emily</th>
+    <td><%= f.text_field :grid61, :value => @rota.grid61 %></td>
+    <td><%= f.text_field :grid62, :value => @rota.grid62 %></td>
+    <td><%= f.text_field :grid63, :value => @rota.grid63 %></td>
+    <td><%= f.text_field :grid64, :value => @rota.grid64 %></td>
+    <td><%= f.text_field :grid65, :value => @rota.grid65 %></td>
+    <td><%= f.text_field :grid66, :value => @rota.grid66 %></td>
+    <td><%= f.text_field :grid67, :value => @rota.grid67 %></td>
+  </tr>
+
+  <tr>
+    <th>Stephen W</th>
+    <td><%= f.text_field :grid71, :value => @rota.grid71 %></td>
+    <td><%= f.text_field :grid72, :value => @rota.grid72 %></td>
+    <td><%= f.text_field :grid73, :value => @rota.grid73 %></td>
+    <td><%= f.text_field :grid74, :value => @rota.grid74 %></td>
+    <td><%= f.text_field :grid75, :value => @rota.grid75 %></td>
+    <td><%= f.text_field :grid76, :value => @rota.grid76 %></td>
+    <td><%= f.text_field :grid77, :value => @rota.grid77 %></td>
+  </tr>
+
+  <tr>
+    <th>Niamh</th>
+    <td><%= f.text_field :grid81, :value => @rota.grid81 %></td>
+    <td><%= f.text_field :grid82, :value => @rota.grid82 %></td>
+    <td><%= f.text_field :grid83, :value => @rota.grid83 %></td>
+    <td><%= f.text_field :grid84, :value => @rota.grid84 %></td>
+    <td><%= f.text_field :grid85, :value => @rota.grid85 %></td>
+    <td><%= f.text_field :grid86, :value => @rota.grid86 %></td>
+    <td><%= f.text_field :grid87, :value => @rota.grid87 %></td>
+  </tr>
+
+  <tr>
+    <th>Josh</th>
+    <td><%= f.text_field :grid91, :value => @rota.grid91 %></td>
+    <td><%= f.text_field :grid92, :value => @rota.grid92 %></td>
+    <td><%= f.text_field :grid93, :value => @rota.grid93 %></td>
+    <td><%= f.text_field :grid94, :value => @rota.grid94 %></td>
+    <td><%= f.text_field :grid95, :value => @rota.grid95 %></td>
+    <td><%= f.text_field :grid96, :value => @rota.grid96 %></td>
+    <td><%= f.text_field :grid97, :value => @rota.grid97 %></td>
+  </tr>
+
+  <tr>
+    <th>Aidan</th>
+    <td><%= f.text_field :grid101, :value => @rota.grid101 %></td>
+    <td><%= f.text_field :grid102, :value => @rota.grid102 %></td>
+    <td><%= f.text_field :grid103, :value => @rota.grid103 %></td>
+    <td><%= f.text_field :grid104, :value => @rota.grid104 %></td>
+    <td><%= f.text_field :grid105, :value => @rota.grid105 %></td>
+    <td><%= f.text_field :grid106, :value => @rota.grid106 %></td>
+    <td><%= f.text_field :grid107, :value => @rota.grid107 %></td>
+  </tr>
+
+  <tr>
+    <th>Courtney</th>
+    <td><%= f.text_field :grid111, :value => @rota.grid111 %></td>
+    <td><%= f.text_field :grid112, :value => @rota.grid112 %></td>
+    <td><%= f.text_field :grid113, :value => @rota.grid113 %></td>
+    <td><%= f.text_field :grid114, :value => @rota.grid114 %></td>
+    <td><%= f.text_field :grid115, :value => @rota.grid115 %></td>
+    <td><%= f.text_field :grid116, :value => @rota.grid116 %></td>
+    <td><%= f.text_field :grid117, :value => @rota.grid117 %></td>
+  </tr>
+  </table>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

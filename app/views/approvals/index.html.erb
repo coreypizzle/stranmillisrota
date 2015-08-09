@@ -1,0 +1,154 @@
+<% if current_user.admin %>
+<h1>Listing approvals</h1>
+
+<% @approvals.each do |approval| %>  
+<table>
+  <tr>
+    <th></th>
+    <th>Sunday</th>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+    <th>Saturday</th>
+  </tr>
+
+  <tr>
+    <th>Louise</th>
+    <td><%= approval.grid11 %></td>
+    <td><%= approval.grid12 %></td>
+    <td><%= approval.grid13 %></td>
+    <td><%= approval.grid14 %></td>
+    <td><%= approval.grid15 %></td>
+    <td><%= approval.grid16 %></td>
+    <td><%= approval.grid17 %></td>
+  </tr>
+
+  <tr>
+    <th>Ruairi</th>
+    <td><%= approval.grid21 %></td>
+    <td><%= approval.grid22 %></td>
+    <td><%= approval.grid23 %></td>
+    <td><%= approval.grid24 %></td>
+    <td><%= approval.grid25 %></td>
+    <td><%= approval.grid26 %></td>
+    <td><%= approval.grid27 %></td>
+  </tr>
+
+  <tr>
+    <th>Gavin</th>
+    <td><%= approval.grid31 %></td>
+    <td><%= approval.grid32 %></td>
+    <td><%= approval.grid33 %></td>
+    <td><%= approval.grid34 %></td>
+    <td><%= approval.grid35 %></td>
+    <td><%= approval.grid36 %></td>
+    <td><%= approval.grid37 %></td>
+  </tr>
+
+  <tr>
+    <th>Conn</th>
+    <td><%= approval.grid41 %></td>
+    <td><%= approval.grid42 %></td>
+    <td><%= approval.grid43 %></td>
+    <td><%= approval.grid44 %></td>
+    <td><%= approval.grid45 %></td>
+    <td><%= approval.grid46 %></td>
+    <td><%= approval.grid47 %></td>
+  </tr>
+
+  <tr>
+    <th>Michael K</th>
+    <td><%= approval.grid51 %></td>
+    <td><%= approval.grid52 %></td>
+    <td><%= approval.grid53 %></td>
+    <td><%= approval.grid54 %></td>
+    <td><%= approval.grid55 %></td>
+    <td><%= approval.grid56 %></td>
+    <td><%= approval.grid57 %></td>
+  </tr>
+
+  <tr>
+    <th>Emily</th>
+    <td><%= approval.grid61 %></td>
+    <td><%= approval.grid62 %></td>
+    <td><%= approval.grid63 %></td>
+    <td><%= approval.grid64 %></td>
+    <td><%= approval.grid65 %></td>
+    <td><%= approval.grid66 %></td>
+    <td><%= approval.grid67 %></td>
+  </tr>
+
+  <tr>
+    <th>Stephen W</th>
+    <td><%= approval.grid71 %></td>
+    <td><%= approval.grid72 %></td>
+    <td><%= approval.grid73 %></td>
+    <td><%= approval.grid74 %></td>
+    <td><%= approval.grid75 %></td>
+    <td><%= approval.grid76 %></td>
+    <td><%= approval.grid77 %></td>
+  </tr>
+
+  <tr>
+    <th>Niamh</th>
+    <td><%= approval.grid81 %></td>
+    <td><%= approval.grid82 %></td>
+    <td><%= approval.grid83 %></td>
+    <td><%= approval.grid84 %></td>
+    <td><%= approval.grid85 %></td>
+    <td><%= approval.grid86 %></td>
+    <td><%= approval.grid87 %></td>
+  </tr>
+
+  <tr>
+    <th>Josh</th>
+    <td><%= approval.grid91 %></td>
+    <td><%= approval.grid92 %></td>
+    <td><%= approval.grid93 %></td>
+    <td><%= approval.grid94 %></td>
+    <td><%= approval.grid95 %></td>
+    <td><%= approval.grid96 %></td>
+    <td><%= approval.grid97 %></td>
+  </tr>
+
+  <tr>
+    <th>Aidan</th>
+    <td><%= approval.grid101 %></td>
+    <td><%= approval.grid102 %></td>
+    <td><%= approval.grid103 %></td>
+    <td><%= approval.grid104 %></td>
+    <td><%= approval.grid105 %></td>
+    <td><%= approval.grid106 %></td>
+    <td><%= approval.grid107 %></td>
+  </tr>
+
+  <tr>
+    <th>Courtney</th>
+    <td><%= approval.grid111 %></td>
+    <td><%= approval.grid112 %></td>
+    <td><%= approval.grid113 %></td>
+    <td><%= approval.grid114 %></td>
+    <td><%= approval.grid115 %></td>
+    <td><%= approval.grid116 %></td>
+    <td><%= approval.grid117 %></td>
+  </tr>
+
+</table>
+
+<table>
+        <tr>
+        <td><%= link_to 'Approve This', push_approval_path(approval, approval.rotumid) %></td>
+        <td><%= link_to 'Show', approval %></td>
+        <td><%= link_to 'Edit', edit_approval_path(approval) %></td>
+        <td><%= link_to 'Destroy', approval, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+</table>
+<% end %>
+
+<br>
+
+<% end %>
+
+<%= link_to 'New Approval', new_approval_path %>

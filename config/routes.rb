@@ -1,17 +1,21 @@
 Rails.application.routes.draw do
+  get 'approvals/:id/push/rota/:rota_id', to: 'approvals#push', as: 'push_approval'
+  put 'approvals/:id/push/rota/:rota_id', to: 'approvals#push'
+
+  resources :approvals
+
   resources :rota
 
   get 'registrations/new'
-
   devise_for :admins
   devise_for :users
-  get 'home/index'
+  get 'rota/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'rota#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

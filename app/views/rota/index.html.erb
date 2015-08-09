@@ -1,18 +1,150 @@
-<h1>Listing rota</h1>
-
+<% @rota.each do |rotum| %>  
+  <h1>Week Commencing : <%= rotum.week %></h1>
 <table>
-  <thead>
-    <tr>
-      <th>Week</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <tr>
+    <th></th>
+    <th>Sunday</th>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+    <th>Saturday</th>
+  </tr>
 
+  <tr>
+    <th>Louise</th>
+    <td><%= rotum.grid11 %></td>
+    <td><%= rotum.grid12 %></td>
+    <td><%= rotum.grid13 %></td>
+    <td><%= rotum.grid14 %></td>
+    <td><%= rotum.grid15 %></td>
+    <td><%= rotum.grid16 %></td>
+    <td><%= rotum.grid17 %></td>
+  </tr>
+
+  <tr>
+    <th>Ruairi</th>
+    <td><%= rotum.grid21 %></td>
+    <td><%= rotum.grid22 %></td>
+    <td><%= rotum.grid23 %></td>
+    <td><%= rotum.grid24 %></td>
+    <td><%= rotum.grid25 %></td>
+    <td><%= rotum.grid26 %></td>
+    <td><%= rotum.grid27 %></td>
+  </tr>
+
+  <tr>
+    <th>Gavin</th>
+    <td><%= rotum.grid31 %></td>
+    <td><%= rotum.grid32 %></td>
+    <td><%= rotum.grid33 %></td>
+    <td><%= rotum.grid34 %></td>
+    <td><%= rotum.grid35 %></td>
+    <td><%= rotum.grid36 %></td>
+    <td><%= rotum.grid37 %></td>
+  </tr>
+
+  <tr>
+    <th>Conn</th>
+    <td><%= rotum.grid41 %></td>
+    <td><%= rotum.grid42 %></td>
+    <td><%= rotum.grid43 %></td>
+    <td><%= rotum.grid44 %></td>
+    <td><%= rotum.grid45 %></td>
+    <td><%= rotum.grid46 %></td>
+    <td><%= rotum.grid47 %></td>
+  </tr>
+
+  <tr>
+    <th>Michael K</th>
+    <td><%= rotum.grid51 %></td>
+    <td><%= rotum.grid52 %></td>
+    <td><%= rotum.grid53 %></td>
+    <td><%= rotum.grid54 %></td>
+    <td><%= rotum.grid55 %></td>
+    <td><%= rotum.grid56 %></td>
+    <td><%= rotum.grid57 %></td>
+  </tr>
+
+  <tr>
+    <th>Emily</th>
+    <td><%= rotum.grid61 %></td>
+    <td><%= rotum.grid62 %></td>
+    <td><%= rotum.grid63 %></td>
+    <td><%= rotum.grid64 %></td>
+    <td><%= rotum.grid65 %></td>
+    <td><%= rotum.grid66 %></td>
+    <td><%= rotum.grid67 %></td>
+  </tr>
+
+  <tr>
+    <th>Stephen W</th>
+    <td><%= rotum.grid71 %></td>
+    <td><%= rotum.grid72 %></td>
+    <td><%= rotum.grid73 %></td>
+    <td><%= rotum.grid74 %></td>
+    <td><%= rotum.grid75 %></td>
+    <td><%= rotum.grid76 %></td>
+    <td><%= rotum.grid77 %></td>
+  </tr>
+
+  <tr>
+    <th>Niamh</th>
+    <td><%= rotum.grid81 %></td>
+    <td><%= rotum.grid82 %></td>
+    <td><%= rotum.grid83 %></td>
+    <td><%= rotum.grid84 %></td>
+    <td><%= rotum.grid85 %></td>
+    <td><%= rotum.grid86 %></td>
+    <td><%= rotum.grid87 %></td>
+  </tr>
+
+  <tr>
+    <th>Josh</th>
+    <td><%= rotum.grid91 %></td>
+    <td><%= rotum.grid92 %></td>
+    <td><%= rotum.grid93 %></td>
+    <td><%= rotum.grid94 %></td>
+    <td><%= rotum.grid95 %></td>
+    <td><%= rotum.grid96 %></td>
+    <td><%= rotum.grid97 %></td>
+  </tr>
+
+  <tr>
+    <th>Aidan</th>
+    <td><%= rotum.grid101 %></td>
+    <td><%= rotum.grid102 %></td>
+    <td><%= rotum.grid103 %></td>
+    <td><%= rotum.grid104 %></td>
+    <td><%= rotum.grid105 %></td>
+    <td><%= rotum.grid106 %></td>
+    <td><%= rotum.grid107 %></td>
+  </tr>
+
+  <tr>
+    <th>Courtney</th>
+    <td><%= rotum.grid111 %></td>
+    <td><%= rotum.grid112 %></td>
+    <td><%= rotum.grid113 %></td>
+    <td><%= rotum.grid114 %></td>
+    <td><%= rotum.grid115 %></td>
+    <td><%= rotum.grid116 %></td>
+    <td><%= rotum.grid117 %></td>
+  </tr>
+</table>
+<% end %>
+  
+<% @rota.each do |rotum| %>
+  <%= link_to "Edit for Approval", new_approval_path(:id => rotum.id) %>
+<% end %>
+
+<% if current_user.admin %>
+<table>
   <tbody>
     <% @rota.each do |rotum| %>
       <tr>
-        <td><%= rotum.week %></td>
-        <td><%= link_to 'Show', rotum %></td>
+       
         <td><%= link_to 'Edit', edit_rotum_path(rotum) %></td>
         <td><%= link_to 'Destroy', rotum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -23,3 +155,4 @@
 <br>
 
 <%= link_to 'New Rotum', new_rotum_path %>
+<% end %>
