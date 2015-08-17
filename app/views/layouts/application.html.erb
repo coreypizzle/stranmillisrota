@@ -4,6 +4,7 @@
   <title>Rota</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -21,12 +22,12 @@
       <li><%= link_to "Home", root_path %></li>
     <% if user_signed_in? %>
       <li>
-      <li>
-        <% if current_user.admin %>
-          Admin
+        <% if current_user.admin? %>
+          <%= link_to "Approvals", approvals_path %>
         <% else %>
         <% end %>
       </li>
+      <li>
         <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
       </li>
     <% else %>
@@ -38,6 +39,20 @@
 </div>
 
 <%= yield %>
-
+  <script>
+  $(function() {
+    $( ".draggable" ).draggable({revert: true, snap: 'inner'});
+    $( ".droppable" ).droppable({
+      drop: function( event, ui ) {
+        var one = $(this).find("span").html();
+        var two = ui.draggable.find("span").html();
+        $(this).find("span").html(two);
+        ui.draggable.find("span").html(one);
+        $(this).find("input").val(two);
+        ui.draggable.find("input").val(one);
+      }
+    });
+  });
+  </script>
 </body>
 </html>

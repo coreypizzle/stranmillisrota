@@ -1,11 +1,18 @@
 class RotaController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_users
+  before_action :user_count
+  before_action :set_usernums
   before_action :set_rotum, only: [:show, :edit, :update, :destroy]
+  before_filter only: [:create, :update, :destroy] do
+    redirect_to :root unless current_user && current_user.admin?
+  end
 
   respond_to :html
 
   def index
-    @rota = Rotum.all
+    @users = User.all.order('created_at ASC')
+    @rota = Rotum.all.order('created_at ASC').page(params[:page]).per(1)
     respond_with(@rota)
   end
 
@@ -38,6 +45,47 @@ class RotaController < ApplicationController
   end
 
   private
+
+    def user_count
+      @user_count = User.count
+    end
+
+    def set_usernums
+      @user1 = User.find_by_id(1)
+      @user2 = User.find_by_id(2)
+      @user3 = User.find_by_id(3)
+      @user4 = User.find_by_id(4)
+      @user5 = User.find_by_id(5)
+      @user6 = User.find_by_id(6)
+      @user7 = User.find_by_id(7)
+      @user8 = User.find_by_id(8)
+      @user9 = User.find_by_id(9)
+      @user10 = User.find_by_id(10)
+      @user11 = User.find_by_id(11)
+      @user12 = User.find_by_id(12)
+      @user13 = User.find_by_id(13)
+      @user14 = User.find_by_id(14)
+      @user15 = User.find_by_id(15)
+      @user16 = User.find_by_id(16)
+      @user17 = User.find_by_id(17)
+      @user18 = User.find_by_id(18)
+      @user19 = User.find_by_id(19)
+      @user20 = User.find_by_id(20)
+      @user21 = User.find_by_id(21)
+      @user22 = User.find_by_id(22)
+      @user22 = User.find_by_id(22)
+      @user22 = User.find_by_id(22)
+      @user22 = User.find_by_id(22)
+      @user22 = User.find_by_id(22)
+      @user22 = User.find_by_id(22)
+      @user22 = User.find_by_id(22)
+      @user22 = User.find_by_id(22)
+    end
+
+    def set_users
+      @users = User.all
+    end
+
     def set_rotum
       @rotum = Rotum.find(params[:id])
     end

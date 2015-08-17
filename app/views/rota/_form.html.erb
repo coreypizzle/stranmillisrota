@@ -11,9 +11,19 @@
     </div>
   <% end %>
   <h1>Week Commencing : <%= f.text_field :week %></h1>
-  <table>
+<div class="table">
+<table class="user_table">
+  <tr></tr>
+  <% @users.each do |user| %>
+  <% unless user.username == 'admin' %> 
+
+  <tr><th><%= user.username %></th></tr>
+
+  <% end %>
+  <% end %>
+</table>
+  <table class="rotum_table">
       <tr>
-    <th></th>
     <th>Sunday</th>
     <th>Monday</th>
     <th>Tuesday</th>
@@ -22,9 +32,8 @@
     <th>Friday</th>
     <th>Saturday</th>
   </tr>
-
+    <% if @user_count > 1 %>
   <tr>
-    <th>Louise</th>
     <td><%= f.text_field :grid11 %></td>
     <td><%= f.text_field :grid12 %></td>
     <td><%= f.text_field :grid13 %></td>
@@ -33,9 +42,9 @@
     <td><%= f.text_field :grid16 %></td>
     <td><%= f.text_field :grid17 %></td>
   </tr>
-
+<% end %>
+  <% if @user_count > 2 %>
   <tr>
-    <th>Ruairi</th>
     <td><%= f.text_field :grid21 %></td>
     <td><%= f.text_field :grid22 %></td>
     <td><%= f.text_field :grid23 %></td>
@@ -44,9 +53,9 @@
     <td><%= f.text_field :grid26 %></td>
     <td><%= f.text_field :grid27 %></td>
   </tr>
-
+  <% end %>
+  <% if @user_count > 3 %>
   <tr>
-    <th>Gavin</th>
     <td><%= f.text_field :grid31 %></td>
     <td><%= f.text_field :grid32 %></td>
     <td><%= f.text_field :grid33 %></td>
@@ -55,9 +64,9 @@
     <td><%= f.text_field :grid36 %></td>
     <td><%= f.text_field :grid37 %></td>
   </tr>
-
+<% end %>
+  <% if @user_count > 4 %>
   <tr>
-    <th>Conn</th>
     <td><%= f.text_field :grid41 %></td>
     <td><%= f.text_field :grid42 %></td>
     <td><%= f.text_field :grid43 %></td>
@@ -66,9 +75,9 @@
     <td><%= f.text_field :grid46 %></td>
     <td><%= f.text_field :grid47 %></td>
   </tr>
-
+<% end %>
+  <% if @user_count > 5 %>
   <tr>
-    <th>Michael K</th>
     <td><%= f.text_field :grid51 %></td>
     <td><%= f.text_field :grid52 %></td>
     <td><%= f.text_field :grid53 %></td>
@@ -77,9 +86,9 @@
     <td><%= f.text_field :grid56 %></td>
     <td><%= f.text_field :grid57 %></td>
   </tr>
-
+<% end %>
+  <% if @user_count > 6 %>
   <tr>
-    <th>Emily</th>
     <td><%= f.text_field :grid61 %></td>
     <td><%= f.text_field :grid62 %></td>
     <td><%= f.text_field :grid63 %></td>
@@ -88,9 +97,9 @@
     <td><%= f.text_field :grid66 %></td>
     <td><%= f.text_field :grid67 %></td>
   </tr>
-
+<% end %>
+  <% if @user_count > 7 %>
   <tr>
-    <th>Stephen W</th>
     <td><%= f.text_field :grid71 %></td>
     <td><%= f.text_field :grid72 %></td>
     <td><%= f.text_field :grid73 %></td>
@@ -99,9 +108,9 @@
     <td><%= f.text_field :grid76 %></td>
     <td><%= f.text_field :grid77 %></td>
   </tr>
-
+<% end %>
+  <% if @user_count > 8 %>
   <tr>
-    <th>Niamh</th>
     <td><%= f.text_field :grid81 %></td>
     <td><%= f.text_field :grid82 %></td>
     <td><%= f.text_field :grid83 %></td>
@@ -110,9 +119,9 @@
     <td><%= f.text_field :grid86 %></td>
     <td><%= f.text_field :grid87 %></td>
   </tr>
-
+<% end %>
+  <% if @user_count > 9 %>
   <tr>
-    <th>Josh</th>
     <td><%= f.text_field :grid91 %></td>
     <td><%= f.text_field :grid92 %></td>
     <td><%= f.text_field :grid93 %></td>
@@ -121,9 +130,9 @@
     <td><%= f.text_field :grid96 %></td>
     <td><%= f.text_field :grid97 %></td>
   </tr>
-
+<% end %>
+  <% if @user_count > 10 %>
   <tr>
-    <th>Aidan</th>
     <td><%= f.text_field :grid101 %></td>
     <td><%= f.text_field :grid102 %></td>
     <td><%= f.text_field :grid103 %></td>
@@ -132,9 +141,9 @@
     <td><%= f.text_field :grid106 %></td>
     <td><%= f.text_field :grid107 %></td>
   </tr>
-
+<% end %>
+  <% if @user_count > 11 %>
   <tr>
-    <th>Courtney</th>
     <td><%= f.text_field :grid111 %></td>
     <td><%= f.text_field :grid112 %></td>
     <td><%= f.text_field :grid113 %></td>
@@ -143,7 +152,10 @@
     <td><%= f.text_field :grid116 %></td>
     <td><%= f.text_field :grid117 %></td>
   </tr>
+<% end %>
   </table>
+
+</div>
   
   <div class="actions">
     <%= f.submit %>

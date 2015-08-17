@@ -1,19 +1,32 @@
+<%= paginate @rota %>
 <% @rota.each do |rotum| %>  
   <h1>Week Commencing : <%= rotum.week %></h1>
-<table>
+
+<div class="table">
+<table class="user_table">
+<tr></tr>
+  <% @users.each do |user| %>
+  <% unless user.username == 'admin' %> 
+
+  <tr><th><%= user.username %></th></tr>
+
+  <% end %>
+  <% end %>
+</table>
+<table class="rotum_table">
+
   <tr>
-    <th></th>
-    <th>Sunday</th>
+    <th id="draggable">Sunday</th>
     <th>Monday</th>
     <th>Tuesday</th>
     <th>Wednesday</th>
     <th>Thursday</th>
-    <th>Friday</th>
+    <th id="droppable">Friday</th>
     <th>Saturday</th>
   </tr>
-
+  
+  <% if @user_count > 1 %>
   <tr>
-    <th>Louise</th>
     <td><%= rotum.grid11 %></td>
     <td><%= rotum.grid12 %></td>
     <td><%= rotum.grid13 %></td>
@@ -22,9 +35,9 @@
     <td><%= rotum.grid16 %></td>
     <td><%= rotum.grid17 %></td>
   </tr>
-
-  <tr>
-    <th>Ruairi</th>
+  <% end %>
+  <% if @user_count > 2 %>
+<tr>
     <td><%= rotum.grid21 %></td>
     <td><%= rotum.grid22 %></td>
     <td><%= rotum.grid23 %></td>
@@ -33,9 +46,9 @@
     <td><%= rotum.grid26 %></td>
     <td><%= rotum.grid27 %></td>
   </tr>
-
+  <% end %>
+  <% if @user_count > 3 %>
   <tr>
-    <th>Gavin</th>
     <td><%= rotum.grid31 %></td>
     <td><%= rotum.grid32 %></td>
     <td><%= rotum.grid33 %></td>
@@ -44,9 +57,9 @@
     <td><%= rotum.grid36 %></td>
     <td><%= rotum.grid37 %></td>
   </tr>
-
+  <% end %>
+  <% if @user_count > 4 %>
   <tr>
-    <th>Conn</th>
     <td><%= rotum.grid41 %></td>
     <td><%= rotum.grid42 %></td>
     <td><%= rotum.grid43 %></td>
@@ -55,9 +68,9 @@
     <td><%= rotum.grid46 %></td>
     <td><%= rotum.grid47 %></td>
   </tr>
-
+<% end %>
+  <% if @user_count > 5 %>
   <tr>
-    <th>Michael K</th>
     <td><%= rotum.grid51 %></td>
     <td><%= rotum.grid52 %></td>
     <td><%= rotum.grid53 %></td>
@@ -66,9 +79,9 @@
     <td><%= rotum.grid56 %></td>
     <td><%= rotum.grid57 %></td>
   </tr>
-
+<% end %>
+  <% if @user_count > 6 %>
   <tr>
-    <th>Emily</th>
     <td><%= rotum.grid61 %></td>
     <td><%= rotum.grid62 %></td>
     <td><%= rotum.grid63 %></td>
@@ -77,9 +90,9 @@
     <td><%= rotum.grid66 %></td>
     <td><%= rotum.grid67 %></td>
   </tr>
-
+<% end %>
+  <% if @user_count > 7 %>
   <tr>
-    <th>Stephen W</th>
     <td><%= rotum.grid71 %></td>
     <td><%= rotum.grid72 %></td>
     <td><%= rotum.grid73 %></td>
@@ -88,9 +101,9 @@
     <td><%= rotum.grid76 %></td>
     <td><%= rotum.grid77 %></td>
   </tr>
-
+  <% end %>
+  <% if @user_count > 8 %>
   <tr>
-    <th>Niamh</th>
     <td><%= rotum.grid81 %></td>
     <td><%= rotum.grid82 %></td>
     <td><%= rotum.grid83 %></td>
@@ -99,9 +112,9 @@
     <td><%= rotum.grid86 %></td>
     <td><%= rotum.grid87 %></td>
   </tr>
-
+<% end %>
+  <% if @user_count > 9 %>
   <tr>
-    <th>Josh</th>
     <td><%= rotum.grid91 %></td>
     <td><%= rotum.grid92 %></td>
     <td><%= rotum.grid93 %></td>
@@ -110,9 +123,10 @@
     <td><%= rotum.grid96 %></td>
     <td><%= rotum.grid97 %></td>
   </tr>
+<% end %>
+  <% if @user_count > 10 %>
 
   <tr>
-    <th>Aidan</th>
     <td><%= rotum.grid101 %></td>
     <td><%= rotum.grid102 %></td>
     <td><%= rotum.grid103 %></td>
@@ -121,9 +135,9 @@
     <td><%= rotum.grid106 %></td>
     <td><%= rotum.grid107 %></td>
   </tr>
-
+<% end %>
+  <% if @user_count > 11 %>
   <tr>
-    <th>Courtney</th>
     <td><%= rotum.grid111 %></td>
     <td><%= rotum.grid112 %></td>
     <td><%= rotum.grid113 %></td>
@@ -132,27 +146,23 @@
     <td><%= rotum.grid116 %></td>
     <td><%= rotum.grid117 %></td>
   </tr>
+  <% end %>
 </table>
-<% end %>
-  
-<% @rota.each do |rotum| %>
-  <%= link_to "Edit for Approval", new_approval_path(:id => rotum.id) %>
-<% end %>
-
-<% if current_user.admin %>
-<table>
-  <tbody>
-    <% @rota.each do |rotum| %>
+<%= link_to "Edit for Approval", new_approval_path(:id => rotum.id) %>
+    <% if current_user.admin %>
+    <table>
       <tr>
        
         <td><%= link_to 'Edit', edit_rotum_path(rotum) %></td>
         <td><%= link_to 'Destroy', rotum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    </table>
     <% end %>
-  </tbody>
-</table>
+</div>
+<% end %>
 
-<br>
+<% if current_user.admin %>
 
-<%= link_to 'New Rotum', new_rotum_path %>
+
+<%= link_to 'New Rota', new_rotum_path %>
 <% end %>

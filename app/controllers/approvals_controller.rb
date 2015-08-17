@@ -1,6 +1,11 @@
 class ApprovalsController < ApplicationController
   before_action :set_approval, only: [:show, :edit, :update, :destroy]
+  before_action :set_users
+  before_action :user_count
   before_filter :authenticate_user!
+  before_filter only: [:push, :destroy, :index] do
+    redirect_to :root unless current_user && current_user.admin?
+  end
 
   respond_to :html
 
@@ -54,6 +59,17 @@ class ApprovalsController < ApplicationController
 
   private
 
+    def user_count
+      @user_count = User.count
+    end
+
+    def set_users
+      @users = User.all
+    end
+
+    def is_admin
+
+    end
 
     def set_approval
       @approval = Approval.find(params[:id])
