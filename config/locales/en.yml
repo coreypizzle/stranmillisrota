@@ -25,5 +25,5 @@ en:
     pagination:
       first: ""
       last: ""
-      previous: "&lt; This Week"
-      next: "Next Week &gt;"
+      previous: "&lt; Backwards"
+      next: "Forwards &gt;"

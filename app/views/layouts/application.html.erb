@@ -24,6 +24,7 @@
       <li>
         <% if current_user.admin? %>
           <%= link_to "Approvals", approvals_path %>
+          <%= link_to "Create a User", new_user_registration_path %>
         <% else %>
         <% end %>
       </li>

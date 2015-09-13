@@ -11,7 +11,7 @@
       </ul>
     </div>
   <% end %>
-
+  <%= f.hidden_field :userchange, :value => current_user.username %>
   <%= f.hidden_field :rotumid, :value => @rota.id %>
 <div class="table">
 <table class="user_table">

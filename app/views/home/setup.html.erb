@@ -1,0 +1,15 @@
+</br>
+<% @users.each do |user| %>
+
+  <%= user.username %></br>
+  <b>
+  <% if user.approved? %>
+  Approved
+  <%= link_to "Edit", edit_user_registration_path(user) %>
+  <% else %>
+  Unapproved
+  <%= link_to "Edit", edit_user_registration_path(user) %>
+  <% end %>
+  </b></br></br>
+
+<% end %>

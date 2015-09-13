@@ -6,9 +6,11 @@ Rails.application.routes.draw do
 
   resources :rota
 
+  get '/setup' => "home#setup"
+
   get 'registrations/new'
   devise_for :admins
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "users"}
   get 'rota/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

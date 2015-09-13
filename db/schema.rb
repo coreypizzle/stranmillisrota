@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810115049) do
+ActiveRecord::Schema.define(version: 20150905094338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 20150810115049) do
     t.string   "grid116"
     t.string   "grid117"
     t.integer  "rotumid"
+    t.string   "userchange"
   end
 
   create_table "rota", force: true do |t|
@@ -224,6 +225,7 @@ ActiveRecord::Schema.define(version: 20150810115049) do
     t.string   "grid5"
     t.string   "grid6"
     t.string   "grid7"
+    t.boolean  "approved"
   end
 
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

@@ -7,6 +7,9 @@ class RotaController < ApplicationController
   before_filter only: [:create, :update, :destroy] do
     redirect_to :root unless current_user && current_user.admin?
   end
+      before_filter except: [:index] do
+      redirect_to :root unless current_user.approved?
+    end
 
   respond_to :html
 

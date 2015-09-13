@@ -1,7 +1,8 @@
 <% if current_user.admin %>
 <h1>Listing approvals</h1>
 
-<% @approvals.each do |approval| %>  
+<% @approvals.each do |approval| %>
+Edited by : <%= approval.userchange %>
 <div class="table">
 <table class="user_table">
 <tr></tr>
@@ -167,5 +168,3 @@
 <br>
 
 <% end %>
-
-<%= link_to 'New Approval', new_approval_path %>
