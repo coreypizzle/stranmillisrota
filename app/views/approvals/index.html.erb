@@ -158,9 +158,8 @@ Edited by : <%= approval.userchange %>
 <table>
         <tr>
         <td><%= link_to 'Approve This', push_approval_path(approval, approval.rotumid) %></td>
-        <td><%= link_to 'Show', approval %></td>
         <td><%= link_to 'Edit', edit_approval_path(approval) %></td>
-        <td><%= link_to 'Destroy', approval, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy / Do Not Approve', approval, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
 </table>
 <% end %>
