@@ -15,7 +15,7 @@ class RotaController < ApplicationController
 
   def index
     @users = User.all.order('created_at ASC')
-    @rota = Rotum.all.order('created_at ASC').page(params[:page]).per(1)
+    @rota = Rotum.all.order('created_at DESC').page(params[:page]).per(1)
     respond_with(@rota)
   end
 
