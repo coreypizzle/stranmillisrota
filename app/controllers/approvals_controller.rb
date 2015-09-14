@@ -71,7 +71,7 @@ class ApprovalsController < ApplicationController
     end
 
     def set_users
-      @users = User.all
+      @users = User.all.order('created_at ASC')
     end
 
     def is_admin
