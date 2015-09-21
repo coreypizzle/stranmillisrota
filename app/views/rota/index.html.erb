@@ -1,10 +1,17 @@
-<%= paginate @rota %>
+ <% if current_user.admin %>
+<div class="pag_new">
+  <div class="paginate left"><%= paginate @rota %></div>
+ <div class="new_link right"><%= link_to 'New Rota', new_rotum_path %></div>
+</div>
+<% end %>
+<% unless current_user.admin %>
+<div class="paginate"><%= paginate @rota %></div>
+<% end %>
 <% @rota.each do |rotum| %>  
-  <h1>Week Commencing : <%= rotum.week %></h1>
-
+  <h1 class="week">Week Commencing : <%= rotum.week %></h1>
 <div class="table">
 <table class="user_table">
-<tr></tr>
+<tr class="days"></tr>
   <% @users.each do |user| %>
   <% unless user.username == 'admin' %> 
 
@@ -14,8 +21,7 @@
   <% end %>
 </table>
 <table class="rotum_table">
-
-  <tr>
+  <tr class="days">
     <th id="draggable">Sunday</th>
     <th>Monday</th>
     <th>Tuesday</th>
@@ -148,21 +154,21 @@
   </tr>
   <% end %>
 </table>
+<div class="approval_link">
 <%= link_to "Edit for Approval", new_approval_path(:id => rotum.id) %>
+</div>
     <% if current_user.admin %>
-    <table>
-      <tr>
        
-        <td><%= link_to 'Edit', edit_rotum_path(rotum) %></td>
-        <td><%= link_to 'Destroy', rotum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    </table>
+        <div class="link_holder">
+          <div class="approval_link left"><%= link_to 'Edit', edit_rotum_path(rotum) %></div>
+          <div class="approval_link right"><%= link_to 'Destroy', rotum, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        </div>
     <% end %>
 </div>
 <% end %>
 
-<% if current_user.admin %>
 
 
-<%= link_to 'New Rota', new_rotum_path %>
-<% end %>
+
+
+

@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <h1>Week Commencing : <%= f.text_field :week %></h1>
+  <h1 class="week">Week Commencing : <%= f.text_field :week %></h1>
 <div class="table">
 <table class="user_table">
   <tr></tr>
@@ -23,7 +23,7 @@
   <% end %>
 </table>
   <table class="rotum_table">
-      <tr>
+      <tr class="days">
     <th>Sunday</th>
     <th>Monday</th>
     <th>Tuesday</th>
@@ -364,10 +364,10 @@
 <% end %>
 
   </table>
-
-</div>
-  
-  <div class="actions">
+  <div class="actions actionscss">
     <%= f.submit %>
   </div>
+</div>
+  
+
 <% end %>

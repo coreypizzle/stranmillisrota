@@ -1,8 +1,8 @@
 <% if current_user.admin %>
-<h1>Listing approvals</h1>
+<center><h1>Listing approvals</h1></center>
 
 <% @approvals.each do |approval| %>
-Edited by : <%= approval.userchange %>
+<h3 class="week">Edited by : <%= approval.userchange %></h3>
 <div class="table">
 <table class="user_table">
 <tr></tr>
@@ -15,7 +15,7 @@ Edited by : <%= approval.userchange %>
   <% end %>
 </table>
 <table class="rotum_table">
-  <tr>
+  <tr class="days">
 
     <th>Sunday</th>
     <th>Monday</th>
@@ -155,12 +155,11 @@ Edited by : <%= approval.userchange %>
 
 </table>
 </div>
-<table>
-        <tr>
-        <td><%= link_to 'Approve This', push_approval_path(approval, approval.rotumid) %></td>
-        <td><%= link_to 'Edit', edit_approval_path(approval) %></td>
-        <td><%= link_to 'Destroy / Do Not Approve', approval, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="link_holder_anti">
+        <div class="approval_link left"><%= link_to 'Approve This', push_approval_path(approval, approval.rotumid) %></td></div>
+        <div class="approval_link right"><%= link_to 'Destroy / Do Not Approve', approval, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      </div>
+
 </table>
 <% end %>
 

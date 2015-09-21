@@ -21,13 +21,11 @@
     <ul>
       <li><%= link_to "Home", root_path %></li>
     <% if user_signed_in? %>
-      <li>
         <% if current_user.admin? %>
-          <%= link_to "Approvals", approvals_path %>
-          <%= link_to "Create a User", new_user_registration_path %>
+          <li><%= link_to "Approvals", approvals_path %></li>
+          <li><%= link_to "Create a User", new_user_registration_path %></li>
         <% else %>
         <% end %>
-      </li>
       <li>
         <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
       </li>
