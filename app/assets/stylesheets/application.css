@@ -222,6 +222,10 @@ th, td {
   width: 140px!important;
 }
 
+td input {
+  width: 135px!important;
+}
+
 tr {
   height: 40px;
 }
