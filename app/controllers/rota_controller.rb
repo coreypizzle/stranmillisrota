@@ -25,7 +25,6 @@ class RotaController < ApplicationController
 
   def new
     @rotum = Rotum.new
-    respond_with(@rotum)
   end
 
   def edit
@@ -34,12 +33,12 @@ class RotaController < ApplicationController
   def create
     @rotum = Rotum.new(rotum_params)
     @rotum.save
-    respond_with(@rotum)
+    redirect_to :root
   end
 
   def update
     @rotum.update(rotum_params)
-    respond_with(@rotum)
+    redirect_to :root
   end
 
   def destroy
